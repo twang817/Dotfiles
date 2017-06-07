@@ -1,0 +1,50 @@
+[alias]
+	st = status
+	br = branch
+	ci = commit
+	co = checkout
+	rs = remote show
+	rv = remote -v
+	diffc = diff --cached
+	fp = fetch --prune
+	fpt = fetch --prune --tags
+        ftp = fetch --prune --tags
+	mff = merge --ff-only
+	pff = pull --ff-only
+	amend = commit --amend --no-edit
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+	ignored = ls-files --others -i --exclude-standard
+	wt = worktree
+	smu = submodule update --init
+	dt = difftool --dir-diff
+	tv = show-ref --tags
+	tc = tag --contains
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+[color]
+	ui = auto
+[diff]
+	tool = bc3
+[difftool]
+	prompt = false
+[merge]
+	tool = bc3
+	conflictstyle = diff3
+[mergetool]
+	bc3 = trustExitCode
+[include]
+	path = ~/.gitconfig.local
+[core]
+	editor = vim
+	excludesfile = /Users/twang/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/twang/.stCommitMsg
