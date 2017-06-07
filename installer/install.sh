@@ -16,6 +16,6 @@ if [ ! -e "$INSTALL_DIR" ]; then
     git clone https://github.com/twang817/dotfiles.git "$INSTALL_DIR"
 fi
 
-$INSTALL_DIR/installer/init.sh
+$INSTALL_DIR/installer/setup.sh
 
 echo Done.

@@ -1,0 +1,17 @@
+#!/bin/bash -e
+
+install() {
+    type pyenv &> /dev/null || {
+        export PYENV_ROOT=$HOME/.pyenv
+        export PATH=$PYENV_ROOT/bin:$PATH
+        if [ ! -d $PYENV_ROOT ]; then
+            git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT
+        fi
+    }
+    eval "$(pyenv init -)"
+    pyenv install -s 2.7.13
+    pyenv install -s 3.6.0
+    pyenv versions
+}
+
+install

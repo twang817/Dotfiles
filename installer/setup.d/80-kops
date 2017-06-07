@@ -1,0 +1,20 @@
+#!/bin/bash -e
+
+brew_install() {
+    if ! brew ls --versions $1; then
+        brew install $@
+    fi
+}
+
+install() {
+    brew_install kops
+    brew_install kubernetes-cli
+    brew cleanup
+}
+
+case "$OSTYPE" in
+    darwin*)
+        install
+        ;;
+    *) ;;
+esac

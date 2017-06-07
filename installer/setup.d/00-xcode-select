@@ -1,0 +1,15 @@
+#!/bin/bash -ex
+
+install() {
+    if ! xcode-select -v &> /dev/null; then
+        xcode-select --install
+        read -p "Press enter after xcode finishes installation..."
+    fi
+}
+
+case "$OSTYPE" in
+    darwin*)
+        install
+        ;;
+    *) ;;
+esac

@@ -1,0 +1,30 @@
+#!/bin/bash -e
+
+lnsf() {
+    if [ -L $2 ]; then
+        rm $2
+    fi
+    if [ ! -e $2 ]; then
+        echo "Linking $2 -> $1"
+        ln -sf $1 $2
+    else
+        echo "File $2 exists.  Aborting..."
+        exit 1
+    fi
+}
+
+link() {
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
+    local rel=$(python -c 'import os; print os.path.relpath(os.getcwd(), os.environ["HOME"])')
+    cd $HOME
+    rel=df
+    lnsf $rel/zsh/zshrc .zshrc
+    lnsf $rel/tmux .tmux
+    lnsf $rel/tmux/tmux.conf .tmux.conf
+    lnsf $rel/git/gitconfig .gitconfig
+    rel=dotfiles
+    lnsf $rel/vim .vim
+    lnsf $rel/vim/vimrc .vimrc
+}
+
+link
