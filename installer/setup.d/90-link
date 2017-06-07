@@ -17,10 +17,10 @@ link() {
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
     local rel=$(python -c 'import os; print os.path.relpath(os.getcwd(), os.environ["HOME"])')
     cd $HOME
-    rel=df
-    lnsf $rel/zsh/zshrc .zshrc
     lnsf $rel/tmux .tmux
     lnsf $rel/tmux/tmux.conf .tmux.conf
+    rel=df
+    lnsf $rel/zsh/zshrc .zshrc
     lnsf $rel/git/gitconfig .gitconfig
     rel=dotfiles
     lnsf $rel/vim .vim
