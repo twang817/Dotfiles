@@ -1,0 +1,99 @@
+[[plugins]]
+repo = 'tpope/vim-sensible'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+depends = 'vim-airline'
+hook_post_source = '''
+    let g:airline_theme = 'ubaryd'
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_post_source = '''
+    source ~/.vim/configs/nerdtree.vim
+'''
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+depends = 'nerdtree'
+
+[[plugins]]
+repo = 'jlanzarotta/bufexplorer'
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+hook_post_source = '''
+    source ~/.vim/configs/gundo.vim
+'''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-abolish'
+
+[[plugins]]
+repo = 'tpope/vim-unimpaired'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+
+[[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+hook_post_source = '''
+    source ~/.vim/configs/fzf.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo = 'breuckelen/vim-resize'
+hook_source = '''
+    let g:vim_resize_disable_auto_mappings = 1
+    nnoremap  <left> :CmdResizeLeft<cr>
+    nnoremap  <down> :CmdResizeDown<cr>
+    nnoremap  <up> :CmdResizeUp<cr>
+    nnoremap  <right> :CmdResizeRight<cr>
+'''
+
+[[plugins]]
+repo = 'qpkorr/vim-bufkill'
+
+# syntax
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = 'vue'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
