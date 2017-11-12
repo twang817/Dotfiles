@@ -1,0 +1,7 @@
+pane	0	0	:zsh	1	:*	0	:/Users/twang/.dotfiles/tmux	1	zsh	:
+pane	2	0	:zsh	1	:*	0	:/Users/twang/.dotfiles/zsh	0	vim	:vim zshrc
+pane	2	0	:zsh	1	:*	1	:/Users/twang/.dotfiles/zsh	1	vim	:vim vi-mode/vi-mode.zsh
+pane	2	0	:zsh	1	:*	2	:/Users/twang/.dotfiles/zsh	0	zsh	:
+window	0	0	1	:*	bedd,256x63,0,0,0
+window	2	0	1	:*	ca25,256x63,0,0{128x63,0,0,17,127x63,129,0[127x31,129,0,21,127x31,129,32,33]}
+state	2	

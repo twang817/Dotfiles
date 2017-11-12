@@ -14,7 +14,6 @@
 	amend = commit --amend --no-edit
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 	ignored = ls-files --others -i --exclude-standard
-	wt = worktree
 	smu = submodule update --init
 	dt = difftool --dir-diff
 	tv = show-ref --tags
@@ -24,6 +23,7 @@
 	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
 	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
 	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	lsf = ls-files
 [color]
 	ui = auto
 [diff]
@@ -46,5 +46,3 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[commit]
-	template = /Users/twang/.stCommitMsg
