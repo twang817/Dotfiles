@@ -1,0 +1,70 @@
+if [[ "${OSTYPE}" =~ "darwin" ]]; then
+    # https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
+    # brew --prefix coreutils => /usr/local/opt/coreutils
+    # default PATH            => /usr/bin:/bin:/usr/sbin:/sbin
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
+    export COPYFILE_DISABLE=1
+fi
+
+export DOTFILES=${$(readlink -f $HOME/.zshrc):h:h}
+export ZSH=${DOTFILES}/zsh
+export PATH=$PATH:$DOTFILES/bin
+export ANTIBODY_BUNDLE_PRE=$ZSH/pre
+export ANTIBODY_BUNDLE_POST=$ZSH/post
+
+export POWERLEVEL9K_MODE="nerdfont-complete"
+export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode context dir rbenv vcs)
+export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
+ 
+# set up antibody
+source ${ZSH}/antibody.zsh
+
+antibody bundle <<EOBUNDLES
+$ZSH/omz-compat
+$ZSH/ls-colors
+$ZSH/env-vars
+$ZSH/aliases
+$ZSH/options
+$ZSH/history
+$ZSH/key-bindings
+$ZSH/ssh-identities
+$ZSH/prompt
+#bhilburn/powerlevel9k
+
+# completions must be loaded early
+zsh-users/zsh-completions
+$ZSH/completions/docker-zsh-completion
+
+# completions uses $LS_COLORS, should be loaded after ls-colors
+$ZSH/completions
+
+twang817/zsh-dirpersist
+twang817/zsh-clipboard
+twang817/zsh-foreground-last
+twang817/zsh-run-help
+twang817/zsh-colored-man
+twang817/zsh-tmux-complete
+zsh-users/zsh-autosuggestions
+twang817/zsh-fzf
+zsh-users/zaw
+twang817/zsh-fasd
+twang817/zsh-gvm
+twang817/zsh-pyenv
+Tarrasch/zsh-autoenv
+
+# b4b4r07/enhancd
+# andrewferrier/fzf-z
+
+# zsh-syntax-highlighting recommends that it should be loaded at the end of zshrc
+zsh-users/zsh-syntax-highlighting
+# zdharma/fast-syntax-highlighting
+
+# zsh-history-substring-search should be loaded after zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+EOBUNDLES
+ 
+# cannot put this in a stdin because it will prompt for passwords
+antibody bundle twang817/zsh-ssh-agent
+
+### export CFLAGS="-I/usr/local/include -L/usr/local/lib"
+export GPG_TTY=$(tty)
