@@ -7,7 +7,7 @@ let g:mapleader=","
 source ~/.vim/dein.vim
 
 " ,, to repeat last fFtT in opposite direction (use ; to find next)
-nnoremap <leader>, ,
+nnoremap <leader>; ,
 
 " allow moving through windows via <C-j> instead of <C-W>j
 map <C-j> <C-w>j
@@ -33,21 +33,18 @@ nmap H gT
 nmap L gt
 
 " Use <C-/> to clear highlighting of hlsearch
-nnoremap <silent> <leader>L :nohlsearch<CR>
+nnoremap <silent> <leader>/ :nohlsearch<CR><C-L>
 
 " easy (re)indenting in visual mode
 vnoremap < <gv
 vnoremap > >gv
 
 " reselect pasted text
-nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+noremap <expr> g<c-v> '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " tmux re-run last command
 nmap <leader>r :call system('tmux select-pane -l; tmux send-keys up enter; tmux select-pane -l')<cr>
 nmap <leader>c :call system('tmux select-pane -l; tmux send-keys c-c; tmux select-pane -l')<cr>
-
-" return to last edit position when opening files
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line('$') | execute "normal! g'\"" | endif
 
 " auto-reload vimrc
 autocmd! BufWritePost .vimrc source %

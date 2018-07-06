@@ -3,7 +3,6 @@
 install() {
     local url="https://github.com/getantibody/antibody/releases/download"
     local version=$(curl -s https://raw.githubusercontent.com/getantibody/homebrew-tap/master/Formula/antibody.rb | grep url | cut -f8 -d'/') || true
-    version=v3.1.0
     test -z "$version" && {
         echo "unable to get antibody version"
         exit 1
@@ -13,4 +12,4 @@ install() {
     curl -sL "$url/$version/antibody_$(uname -s)_$(uname -m).tar.gz" | tar -zx antibody
 }
 
-install
+type antibody &> /dev/null || install

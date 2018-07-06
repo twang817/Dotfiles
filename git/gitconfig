@@ -8,7 +8,7 @@
 	diffc = diff --cached
 	fp = fetch --prune
 	fpt = fetch --prune --tags
-        ftp = fetch --prune --tags
+	ftp = fetch --prune --tags
 	mff = merge --ff-only
 	pff = pull --ff-only
 	amend = commit --amend --no-edit
@@ -24,6 +24,7 @@
 	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
 	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
 	lsf = ls-files
+    sth = status .
 [color]
 	ui = auto
 [diff]
@@ -46,3 +47,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[url "ssh://git@github.com/"]
+        insteadOf = https://github.com/

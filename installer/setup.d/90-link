@@ -20,9 +20,7 @@ link() {
     lnsf $rel/tmux .tmux
     lnsf $rel/tmux/tmux.conf .tmux.conf
     lnsf $rel/git/gitconfig .gitconfig
-    rel=df
     lnsf $rel/zsh/zshrc .zshrc
-    rel=dotfiles
     lnsf $rel/vim .vim
     lnsf $rel/vim/vimrc .vimrc
 }

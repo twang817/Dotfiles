@@ -20,6 +20,7 @@ alias duf='du -sh * | sort -h'
 alias fd='find . -type d -name'
 alias ff='find . -type f -name'
 alias ffs='find . -type f -name ".*.swp"'
+alias ffsf='ffs | sed "s/\(.*\)\/\.\(.*\)\.swp/\1\/\2/"'
 
 alias h='history'
 alias hgrep='fc -El 0 | grep'
@@ -69,6 +70,17 @@ alias -- -='cd -'
 alias drmi='docker images -qf dangling=true |xargs docker rmi'
 alias drmc='docker ps -aqf status=exited |xargs docker rm'
 alias dvls='docker volume ls'
+alias dvrm='docker volume rm'
+alias dnls='docker network ls'
+alias dnrm='docker network rm'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+
+# kubernetes
+alias k='kubectl'
+alias ktx='kubectx'
+alias kns='kubens'
+alias kt='kubetail'
 
 # ansible-vault
 function avt() {
@@ -81,6 +93,14 @@ function ave() {
 
 function avd() {
     ansible-vault decrypt $* --vault-password-file=~/.vault_pass.txt
+}
+
+function b6d() {
+    echo -n "$1" | base64 -d
+}
+
+function b6e() {
+    echo -n "$1" | base64
 }
 
 # git move to branch
@@ -108,4 +128,12 @@ function gmtb() {
 # brew list dependencies
 function brew_deps() {
     brew list | while read cask; do echo -n $fg[blue] $cask $fg[white]; brew deps $cask | awk '{printf(" %s ", $0)}'; echo ""; done
+}
+
+# pip
+alias pipfl='pip freeze -l'
+
+# cqlsh
+cqlsh() {
+    ~/workspace/cqlsh/cqlsh $@
 }

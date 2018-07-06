@@ -3,6 +3,7 @@ if [[ "${OSTYPE}" =~ "darwin" ]]; then
     # brew --prefix coreutils => /usr/local/opt/coreutils
     # default PATH            => /usr/bin:/bin:/usr/sbin:/sbin
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
+    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH-/usr/share/man}"
     export COPYFILE_DISABLE=1
 fi
 
