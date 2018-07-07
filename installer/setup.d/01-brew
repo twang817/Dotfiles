@@ -51,6 +51,7 @@ install() {
     brew_install colordiff
     brew_install highlight
     brew_install reattach-to-user-namespace
+    brew install fzf
     brew cleanup
 }
 

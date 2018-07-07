@@ -1,0 +1,13 @@
+#!/bin/bash -ex
+
+install() {
+    local url="https://github.com/clvv/fasd/tarball/"
+    local version="1.0.1"
+    rm -rf /tmp/fasd
+    mkdir -p /tmp/fasd
+    cd /tmp/fasd
+    curl -sL "$url/$version" | tar -zx --strip-components 1
+    make install
+}
+
+type fasd &> /dev/null || install
